@@ -1,0 +1,19 @@
+.container {
+  width: 100%;
+  overflow-y: scroll;
+}
+.header {
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: #cbcbd3;
+  text-transform: uppercase;
+}
+.container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.container::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  background-color: #615ebf;
+}
