@@ -3,14 +3,15 @@ import "firebase/compat/auth";
 import "firebase/compat/firestore";
 
 const app = firebase.initializeApp({
-  apiKey: "AIzaSyDWlKcuxKzkDeXSKFOVJbEUGZTmDX9XXpo",
-  authDomain: "taskerr-82bdd.firebaseapp.com",
-  projectId: "taskerr-82bdd",
-  storageBucket: "taskerr-82bdd.appspot.com",
-  messagingSenderId: "754544335000",
-  appId: "1:754544335000:web:142c56013e71793ced58ed",
-  measurementId: "G-M1RRRT91C5",
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
 });
+
 
 export const auth = app.auth();
 export const firestore = app.firestore();
