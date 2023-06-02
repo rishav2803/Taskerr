@@ -1,21 +1,19 @@
+import {useState} from "react";
 import SideBar from "../components/SideBar";
 import Task from "../components/Task";
 import Container from "../components/UI/Container";
 
 export default function Home(){
+  const [hamburger,setHamburger]=useState(false);
 
-  const data=[
-    {
-    name:"MajorProject",
-    status:"Todo",
-    todo:["build","deploy"]
-   }
-  ];
+  function hamburgerHandler(val){
+    setHamburger(val);
+  }
 
   return(
     <Container>
-      <SideBar />
-      <Task />
+      <SideBar hamburger={hamburger} />
+      <Task hamburger={hamburger} onHamburger={hamburgerHandler}/>
     </Container>
   )
 }
