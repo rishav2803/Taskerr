@@ -1,19 +1,19 @@
-import {Draggable, Droppable} from "react-beautiful-dnd";
 import Card from "./Card";
 import styles from "./Todo.module.css"
+import {Draggable, Droppable} from "react-beautiful-dnd";
 
-export default function Todo({subtasks}){
+export default function Doing({subtasks}){
   return(
     <div className={styles.container}>
       <div className={styles.header_container}>
-        <h1 className={styles.header}>Todo ({subtasks.length})</h1>
+        <h1 className={styles.header}>Doing</h1>
         <i className="fa fa-circle-plus"></i>
       </div>
-      <Droppable droppableId="todo">
+      <Droppable droppableId="doing">
         {(provided) => (
           <div ref={provided.innerRef} {...provided.droppableProps}>
             {subtasks.map(({ description, status }, idx) => {
-              if (status === "todo") {
+              if (status === "doing") {
                 return (
                   <Draggable key={idx} draggableId={`task-${idx}`} index={idx}>
                     {(provided) => (

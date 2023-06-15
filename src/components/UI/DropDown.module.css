@@ -6,7 +6,7 @@
   flex-direction: column;
   justify-content: space-around;
   position: absolute;
-  bottom: 0;
+  bottom: 1rem;
   border-radius: 12px;
   left: 1.5rem;
   z-index: 10;

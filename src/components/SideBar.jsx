@@ -1,5 +1,6 @@
 import {useContext, useState} from "react";
 import {AuthContext} from "../contexts/AuthContext";
+import {TaskContext} from "../contexts/TaskContext";
 import styles from "./SideBar.module.css"
 import TaskList from "./TaskList";
 import DropDown from "./UI/DropDown";
@@ -7,8 +8,9 @@ import Logo from "./UI/Logo";
 
 export default function SideBar({hamburger}){
   const [dropDown,setDropDown]=useState(false);
-
   const {currentUser}=useContext(AuthContext);
+  const {tasks}=useContext(TaskContext);
+
   return(
     <div className={`${styles.container} ${hamburger ? styles.show : ""}`}>
       <header className={styles.header}>
@@ -16,7 +18,7 @@ export default function SideBar({hamburger}){
         <h1>Taskerr</h1>
       </header>
       <div className={styles.task_container}>
-        <h4>All tasks (3)</h4>
+        <h4>All tasks ({tasks.length})</h4>
         <TaskList/>
         {dropDown && <DropDown/>}
       </div>
