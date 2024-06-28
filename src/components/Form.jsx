@@ -10,7 +10,7 @@ function TaskForm({onClose}) {
   const [date,setDate]=useState("");
   const [subtasks, setSubtasks] = useState([]);
   const{currentUser}=useContext(AuthContext);
-  const{updateTask}=useContext(TaskContext);
+  const{addTask}=useContext(TaskContext);
 
   const handleTaskNameChange = (e) => {
     setTaskName(e.target.value);
@@ -54,10 +54,9 @@ function TaskForm({onClose}) {
       task_name: taskName,
       user_id: currentUser.uid
     };
-    console.log(tasks);
     try {
       const insertedTasks = await insertTask(tasks);
-      if (updateTask(insertedTasks)) {
+      if (addTask(insertedTasks)) {
         onClose(false);
       }
     } catch (error) {

@@ -6,6 +6,7 @@
   position: relative;
   display: grid;
   grid-template-columns: 20% auto;
+  overflow: hidden;
 }
 
 @media all and (max-width: 1200px) {

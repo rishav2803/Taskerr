@@ -10,8 +10,8 @@
   margin-inline: 0.2rem;
   background-color: #615ebf;
 }
-span:nth-child(1) {
-  background-color: #6662d9;
+.first {
+  background-color: #7471c1;
 }
 span:nth-child(3) {
   background-color: #464386;

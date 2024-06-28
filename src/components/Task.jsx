@@ -51,12 +51,11 @@ export default function Task({hamburger,onHamburger}){
           <i className={`fa fa-bars ${hamburger === false ? "" : styles.hid} `}></i>
           <i className={`fa fa-times ${hamburger === true ? styles.z : styles.hid}`}></i>
         </div>
-
         <button className={styles.btn} onClick={() => setIsDialogOpen(true)}>
           <i className="fa fa-plus" style={{fontSize:".7rem;",marginRight:".4rem"}}></i>
           Add New Task
         </button>
-        {isDialogOpen && <Modal onDialogClose={modalCloseHandler}/>}
+        {isDialogOpen && <Modal taskStatus={""} onDialogClose={modalCloseHandler}/>}
       </div>
       { task.length===0 ?<Welcome/>:
         <DragDropContext onDragEnd={onDragEnd}>

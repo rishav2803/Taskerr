@@ -1,14 +1,39 @@
 import Card from "./Card";
-import styles from "./Todo.module.css"
-import {Draggable, Droppable} from "react-beautiful-dnd";
+import styles from "./Todo.module.css";
+import { Draggable, Droppable } from "react-beautiful-dnd";
+import { useState } from "react";
+import Modal from "./UI/Modal";
 
-export default function Doing({subtasks}){
-  return(
+export default function Doing({ subtasks }) {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  console.log(subtasks);
+
+  function modalCloseHandler(val) {
+    setIsDialogOpen(val);
+  }
+
+  return (
     <div className={styles.container}>
       <div className={styles.header_container}>
-        <h1 className={styles.header}>Doing</h1>
-        <i className="fa fa-circle-plus"></i>
+        <div>
+          <div
+            className={styles.circle}
+            style={{
+              backgroundColor: "#826FEF",
+            }}
+          ></div>
+          <h1 className={styles.header}>Doing</h1>
+        </div>
+        <i
+          className="fa fa-circle-plus"
+          onClick={() => setIsDialogOpen(true)}
+        ></i>
       </div>
+
+      {isDialogOpen && (
+        <Modal taskStatus={"doing"} onDialogClose={modalCloseHandler} />
+      )}
+
       <Droppable droppableId="doing">
         {(provided) => (
           <div ref={provided.innerRef} {...provided.droppableProps}>
@@ -34,5 +59,5 @@ export default function Doing({subtasks}){
         )}
       </Droppable>
     </div>
-  )
+  );
 }

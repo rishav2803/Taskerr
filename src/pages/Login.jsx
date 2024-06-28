@@ -49,7 +49,7 @@ export default function Login() {
       const { email, password } = values;
       try {
         await login(email, password);
-        navigate("/");
+        navigate("/product");
       } catch (error) {
         console.log(error);
         toast.error("LogIn Failed,Please try again", toastOptns);

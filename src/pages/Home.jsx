@@ -17,11 +17,17 @@ export default function Home(){
   }
 
   useEffect(()=>{
-    async function getData(){
-      const res=await fetchTask(currentUser.uid);
+    // async function getData(){
+    //   const res=await fetchTask(currentUser.uid);
+    //   storeTask(res);
+    // }
+    // getData();
+
+    //Immediate Invoked Function
+    (async () => {
+      const res = await fetchTask(currentUser.uid);
       storeTask(res);
-    }
-    getData();
+    })();
   },[]);
 
   return(

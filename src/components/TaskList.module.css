@@ -50,7 +50,6 @@
 }
 .list_items:hover {
   transition: 0.25s;
-  transform: scale(1.1);
   cursor: pointer;
 }
 .list_items:hover:after {

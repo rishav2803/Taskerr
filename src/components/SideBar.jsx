@@ -17,18 +17,20 @@ export default function SideBar({hamburger}){
         <Logo/>
         <h1>Taskerr</h1>
       </header>
-      <div className={styles.task_container}>
-        <h4>All tasks ({tasks.length})</h4>
-        <TaskList/>
-        {dropDown && <DropDown/>}
-      </div>
-      <footer className={styles.footer}>
-        <div className={styles.profile}>
-          <i className="fa fa-user"></i>
-          <p>{currentUser.displayName}</p>
+      <div className={styles.test_container}>
+        <div className={styles.task_container}>
+          <h4>All tasks ({tasks.length})</h4>
+          <TaskList/>
+          {dropDown && <DropDown/>}
         </div>
-        <i className="fa fa-ellipsis-h" onClick={()=>{setDropDown(!dropDown)}}></i>
-      </footer>
+        <footer className={styles.footer}>
+          <div className={styles.profile}>
+            <i className="fa fa-user"></i>
+            <p style={{textTransform:"capitalize"}}>{currentUser.displayName}</p>
+          </div>
+          <i className="fa fa-ellipsis-h" onClick={()=>{setDropDown(!dropDown)}}></i>
+        </footer>
+      </div>
     </div>
   );
 }

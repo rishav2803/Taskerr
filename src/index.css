@@ -4,10 +4,26 @@
   margin: 0;
   box-sizing: border-box;
 }
+:root {
+  --dark-bg-color: #22222e;
+  --light-bg-color: #2c2c38;
+  --primary-text-color: #feffff;
+  --secondary-text-color: #cbcbd3;
+  --purple: "#7471c1";
+}
 
 body {
-  height: 100vh;
-  overflow: hidden;
+  height: 50vh;
+  /* overflow: hidden; */
   background-color: #22222e;
   font-family: JetBrains Mono;
+}
+
+body::-webkit-scrollbar {
+  width: 4px;
+}
+
+body::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  background-color: #7471c1;
 }

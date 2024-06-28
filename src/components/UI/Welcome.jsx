@@ -1,9 +1,11 @@
-import {useEffect, useState} from 'react';
+import {useEffect, useState,useContext} from 'react';
 import styles from './Welcome.module.css'
+import {AuthContext} from "../../contexts/AuthContext";
 
-const Welcome=( {userName} )=>{
+const Welcome=()=>{
     const [typedText, setTypedText] = useState("");
-    const text = "Rishav Thapliyal";
+    const {currentUser}=useContext(AuthContext);
+    const text = currentUser.displayName;
 
     useEffect(() => {
         let index = 0;
@@ -20,7 +22,7 @@ const Welcome=( {userName} )=>{
   return (
     <div className={styles.container}>
         <div className={styles.name_container}>
-            <p>Hello,</p><h1>{typedText}</h1>
+            <p>Hello,</p><h1 style={{textTransform:"capitalize"}}>{typedText}</h1>
         </div>
         <p>Welcome to Taskerr <i className="fa fa-tasks"></i></p>
     </div>

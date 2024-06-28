@@ -10,6 +10,7 @@ export function AuthProvider({ children }) {
   async function signup(name,email, password) {
     try {
       const userCredential = await auth.createUserWithEmailAndPassword(email, password);
+      //Update the profile name of the user
       await userCredential.user.updateProfile({
         displayName: name
       });
@@ -29,6 +30,7 @@ export function AuthProvider({ children }) {
 
   function isUserLoggedIn() {
     const currentUser = auth.currentUser;
+    //!! converts into truthy or falsy
     return !!currentUser; 
   }
 

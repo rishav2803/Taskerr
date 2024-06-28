@@ -1,0 +1,59 @@
+.card {
+  background-color: #2c2c38;
+  padding: 20px 3rem;
+  border-radius: 12px;
+  height: 60vh;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.card_icon {
+  color: #b9d8c7;
+  background-color: #645fc6;
+  padding: 1.5rem;
+  border-radius: 50%;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3rem;
+  margin-top: 2rem;
+}
+.card_content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.divider {
+  width: 20%;
+  height: 3px;
+  background-color: #645fc6;
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.description {
+  color: #b1b1b9;
+  line-height:2;
+}
+
+.button {
+  margin-top: 20px;
+  background-color: #645fc6;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #ff8c00;
+}

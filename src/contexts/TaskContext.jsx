@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
-import { firestore } from "../firebase";
 
+//Create the context
 export const TaskContext = React.createContext();
 
 export function TaskProvider({ children }) {
@@ -11,7 +11,20 @@ export function TaskProvider({ children }) {
     setTasks(task);
   }
 
-  function updateTask(task) {
+  function updateTask(newTask){
+    const updatedTasks = tasks.map((task) => {
+      //Return new task for the given/selected task
+      if (task.id === selectedTask) {
+        return newTask;
+      }
+      // return same task that is dont do anything
+      return task;
+    });
+    setTasks(updatedTasks);
+    return true;
+  }
+
+  function addTask(task) {
     const updatedTask=[...tasks];
     updatedTask[tasks.length]=task
     setTasks(updatedTask);
@@ -26,6 +39,7 @@ export function TaskProvider({ children }) {
   const value = {
     tasks,
     storeTask,
+    addTask,
     updateTask,
     selectTask,
     selectedTask,

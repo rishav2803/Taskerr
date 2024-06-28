@@ -28,3 +28,35 @@ export async function insertTask(task) {
     console.log(error);
   }
 }
+
+export async function updateSubTask(newSubtask, uid, tid) {
+  try {
+    const querySnapshot = await firestore
+      .collection("tasks")
+      .where("user_id", "==", uid)
+      .get();
+
+    const taskDoc = querySnapshot.docs.find((doc) => doc.id === tid);
+
+    if (taskDoc) {
+      //Get the refrence of the specifc document to preform crud operations
+      const taskRef = firestore.collection("tasks").doc(taskDoc.id);
+      const taskData = taskDoc.data();
+      const existingSubtasks = taskData.subtasks || [];
+      const updatedSubtasks = [...existingSubtasks, ...newSubtask];
+
+      //Update the document
+      await taskRef.update({ subtasks: updatedSubtasks });
+
+      //Fetch and return the updated task;
+      const updatedTaskSnapshot = await taskRef.get();
+      const updatedTaskData = updatedTaskSnapshot.data();
+      return { id: taskDoc.id, ...updatedTaskData };
+    } else {
+      throw new Error("Task not found");
+    }
+  } catch (error) {
+    console.log(error);
+    return { error: error.message };
+  }
+}

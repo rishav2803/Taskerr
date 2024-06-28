@@ -3,17 +3,8 @@ import {TaskContext} from "../contexts/TaskContext";
 import styles from "./TaskList.module.css";
 
  export default function TaskList(){
-   // const[loading,setLoading]=useState(false);
    const {tasks,selectTask}=useContext(TaskContext);
    const [selected,setSelected]=useState("")
-
-   // useEffect(() => {
-   //   if (tasks.length === 0) {
-   //     setLoading(true);
-   //   } else {
-   //     setLoading(false);
-   //   }
-   // }, [tasks]);
 
    function selectHandler(id){
      selectTask(id);
