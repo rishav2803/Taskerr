@@ -16,6 +16,7 @@
 }
 
 .list_items {
+  display:flex;
   padding: 1rem 0;
   margin-bottom: 1rem;
   width: 83%;
@@ -23,7 +24,6 @@
   border-radius: 12px;
   background-color: #21212d;
   z-index: 0;
-  /* -webkit-transition: border-color 0.35s ease, background 0.35s ease; */
   transition: transform 0.35s ease, background 0.35s ease;
 }
 

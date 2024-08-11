@@ -1,0 +1,103 @@
+.chatbox {
+  height: 600px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.chatboxHeader {
+  color: var(--primary-text-color);
+  text-align: left;
+  font-weight: bold;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.chatboxBody {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.chatboxNote {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+}
+
+.userIcon {
+  width: 40px;
+  height: 40px;
+  background-color: #007bff;
+  border-radius: 50%;
+  margin-right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+}
+
+.noteText {
+  background-color: var(--primary-text-color);
+  padding: 10px;
+  border-radius: 10px;
+  margin-left: 1rem;
+  position: relative;
+}
+
+.noteText::after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: -10px;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid #f1f1f1;
+}
+
+.chatboxInput {
+  border-top: 1px solid #ccc;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.chatboxInput textarea {
+  width: 100%;
+  height: 40px;
+  border: none;
+  resize: none;
+  outline: none;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.1);
+  margin-right: 10px;
+}
+
+.forwardButton {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.forwardButton:hover {
+  background-color: #0056b3;
+}
+
+.chatboxBody::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chatboxBody::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  background-color: var(--secondary-text-color);
+}
+

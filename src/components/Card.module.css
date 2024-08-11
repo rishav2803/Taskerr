@@ -21,7 +21,7 @@
   width: 85%;
   position: relative;
   margin-inline: auto;
-  margin-bottom: 0.5rem;
+  margin-bottom: 2rem;
   padding: 1.3rem;
   font-size: 1rem;
   border-radius: 12px;
@@ -36,8 +36,8 @@
 .replies_curve {
   width: 15px;
   height: 15px;
-  border-left: 2px solid #7471c1; /* Left border */
-  border-bottom: 2px solid #7471c1; /* Bottom border */
+  border-left: 2px solid #7471c1; 
+  border-bottom: 2px solid #7471c1; 
   border-bottom-left-radius: 25px;
 }
 .replies_container {
@@ -61,5 +61,4 @@
 }
 .c:hover {
   cursor: pointer;
-  /* transform: scale(1.1); */
 }

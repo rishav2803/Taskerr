@@ -4,14 +4,14 @@ import React, { useState, useEffect, useContext } from "react";
 export const TaskContext = React.createContext();
 
 export function TaskProvider({ children }) {
-  const [tasks,setTasks] = useState([]);
-  const [selectedTask,setSelectedTask]=useState("");
+  const [tasks, setTasks] = useState([]);
+  const [selectedTask, setSelectedTask] = useState("");
 
-  function storeTask(task){
+  function storeTask(task) {
     setTasks(task);
   }
 
-  function updateTask(newTask){
+  function updateTask(newTask) {
     const updatedTasks = tasks.map((task) => {
       //Return new task for the given/selected task
       if (task.id === selectedTask) {
@@ -25,13 +25,13 @@ export function TaskProvider({ children }) {
   }
 
   function addTask(task) {
-    const updatedTask=[...tasks];
-    updatedTask[tasks.length]=task
+    const updatedTask = [...tasks];
+    updatedTask[tasks.length] = task
     setTasks(updatedTask);
     return true;
   }
 
-  function selectTask(taskId){
+  function selectTask(taskId) {
     setSelectedTask(taskId);
   }
 
@@ -43,6 +43,7 @@ export function TaskProvider({ children }) {
     updateTask,
     selectTask,
     selectedTask,
+    setTasks,
   };
 
   return (

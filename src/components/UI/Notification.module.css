@@ -1,0 +1,25 @@
+.notification_container{
+  margin-inline:1rem;
+}
+
+.notification_container{
+  margin-inline:1.4rem;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:1.3rem;
+  position:relative;
+}
+.badge {
+  position: absolute;
+  top: -12px;
+  right: -19px;
+  background-color: var(--purple);
+  color: white;
+  border-radius: 50%;
+  padding: 0.5em 0.75em;
+  font-size: 0.5em;
+}
+.notification_container:hover{
+  cursor:pointer;
+}

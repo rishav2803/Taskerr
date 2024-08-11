@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Draggable, Droppable } from "react-beautiful-dnd";
 import Card from "./Card";
 import styles from "./Todo.module.css";
-import Modal from "./UI/Modal";
+import UpdateForm from "./UpdateForm";
 export default function Todo({ subtasks }) {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
@@ -29,7 +29,7 @@ export default function Todo({ subtasks }) {
       </div>
 
       {isDialogOpen && (
-        <Modal taskStatus={"todo"} onDialogClose={modalCloseHandler} />
+        <UpdateForm onClose={modalCloseHandler} taskStatus="todo" />
       )}
 
       <Droppable droppableId="todo">

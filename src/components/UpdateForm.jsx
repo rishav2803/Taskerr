@@ -1,13 +1,14 @@
 import { useContext, useState } from 'react';
-import {AuthContext} from '../contexts/AuthContext';
-import {TaskContext} from '../contexts/TaskContext';
-import {updateSubTask} from '../service/TaskService';
+import { AuthContext } from '../contexts/AuthContext';
+import { TaskContext } from '../contexts/TaskContext';
+import { updateSubTask } from '../service/TaskService';
 import styles from "./Form.module.css";
+import Modal from "./UI/Modal"
 
-function UpdateForm({onClose,taskStatus}) {
+function UpdateForm({ onClose, taskStatus }) {
   const [subtasks, setSubtasks] = useState([""]);
-  const{currentUser}=useContext(AuthContext);
-  const{updateTask,selectedTask}=useContext(TaskContext);
+  const { currentUser } = useContext(AuthContext);
+  const { updateTask, selectedTask } = useContext(TaskContext);
 
   //handle the text inside each subtask input
   const handleSubtaskChange = (index, e) => {
@@ -30,53 +31,55 @@ function UpdateForm({onClose,taskStatus}) {
     }
   };
 
-  const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const subtask=subtasks.map((name) => {
-      return(
+    const subtask = subtasks.map((name) => {
+      return (
         {
-          description:name,
-          status:taskStatus
+          description: name,
+          status: taskStatus
         }
       );
     });
 
-    try{
-      const res=await updateSubTask(subtask, currentUser.uid, selectedTask);
+    try {
+      const res = await updateSubTask(subtask, currentUser.uid, selectedTask);
       console.log(res);
       if (updateTask(res)) {
         onClose(false);
       }
-    }catch (error) {
+    } catch (error) {
       console.log("Error while updating the subtask", error);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className={styles.form}>
-      <div className={styles.form_input}>
-        <label>Subtasks:</label>
-        {subtasks.map((subtask, index) => (
-          <div key={index} className={styles.subtask}>
-            <input
-              type="text"
-              value={subtask}
-              required
-              onChange={(e) => handleSubtaskChange(index, e)}
-            />
-            <i className="fa fa-times"  onClick={() => handleDeleteSubtask(index)}></i>
-          </div>
-        ))}
-        {/* if subtask is greater than 6 then the add button will disappear  */}
-        {subtasks.length < 6 && (
-          <button type="button" onClick={handleAddSubtask} className={`${styles.btn} ${styles.light}`}>
-            Add Subtask
-          </button>
-        )}
+    <Modal onDialogClose={onClose}>
+      <form onSubmit={handleSubmit} className={styles.form}>
+        <div className={styles.form_input}>
+          <label>Subtasks:</label>
+          {subtasks.map((subtask, index) => (
+            <div key={index} className={styles.subtask}>
+              <input
+                type="text"
+                value={subtask}
+                required
+                onChange={(e) => handleSubtaskChange(index, e)}
+              />
+              <i className="fa fa-times" onClick={() => handleDeleteSubtask(index)}></i>
+            </div>
+          ))}
+          {/* if subtask is greater than 6 then the add button will disappear  */}
+          {subtasks.length < 6 && (
+            <button type="button" onClick={handleAddSubtask} className={`${styles.btn} ${styles.light}`}>
+              Add Subtask
+            </button>
+          )}
 
-      </div>
-      <button type="submit" className={`${styles.btn} ${styles.dark}`}>Submit</button>
-    </form>
+        </div>
+        <button type="submit" className={`${styles.btn} ${styles.dark}`}>Submit</button>
+      </form>
+    </Modal>
   );
 }
 

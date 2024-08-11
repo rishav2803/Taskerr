@@ -26,7 +26,7 @@ const Benefits = () => {
             Collaborate with your team, assign tasks, and track team progress.
           </p>
         </div>
-      </div>
+      </Card>
     </section>
   );
 };

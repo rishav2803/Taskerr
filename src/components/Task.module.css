@@ -43,6 +43,29 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 }
+.notification_container{
+  margin-inline:1.4rem;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:1.3rem;
+  position:relative;
+}
+.notification_container:before{
+  content:'';
+  position: absolute;
+  width:11px;
+  aspect-ratio:1;
+  border-radius:50%;
+  background-color:var(--purple);
+  top:0px;
+  right:-5px;
+
+}
+
+.notification_container:hover{
+  cursor:pointer;
+}
 
 @media all and (max-width: 1200px) {
   .header {

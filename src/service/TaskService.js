@@ -1,4 +1,5 @@
 import { firestore } from "../firebase";
+import { updateDoc } from "firebase/firestore"
 
 export async function fetchTask(uid) {
   try {
@@ -15,6 +16,16 @@ export async function fetchTask(uid) {
     return tasks;
   } catch (error) {
     console.log(error);
+  }
+}
+
+export async function updateSubTaskStatus(taskId, updatedSubtasks) {
+  console.log("Called this");
+  try {
+    const taskRef = firestore.collection("tasks").doc(taskId);
+    await updateDoc(taskRef, { subtasks: updatedSubtasks });
+  } catch (error) {
+    console.error("Error updating task: ", error);
   }
 }
 
